@@ -1,6 +1,7 @@
 var app = angular.module('angularApp', ['ngRoute']);
 
 app.config(function ($routeProvider) {
+
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
