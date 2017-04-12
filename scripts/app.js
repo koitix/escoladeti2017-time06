@@ -15,8 +15,11 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/novoproduto.html',
             controller: 'produtoController',
             controllerAs: 'produtoController'
+        }).when('/editarproduto/:codigo', {
+            templateUrl: 'views/novoproduto.html',
+            controller: 'produtoEditarController'
         }).when('/pedidos', {
-            templateUrl: 'views/listapedidos.html',
+            templateUrl: 'views/listapedidos.html'
             // controller: 'MainCtrl',
             // controllerAs: 'main'
         })

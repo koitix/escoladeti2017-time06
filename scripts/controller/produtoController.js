@@ -10,5 +10,10 @@ app.controller('produtoController', function ($scope, $location, produtoService)
 
     $scope.deletar = function (produto) {
         produtoService.deletar(produto);
-    }
+    };
+
+    $scope.editar = function (codigoProduto) {
+        $location.path('/editarproduto/' + codigoProduto)
+    };
+
 });

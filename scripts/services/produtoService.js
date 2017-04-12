@@ -52,5 +52,6 @@ app.service('produtoService', function () {
         if (indiceExcluir) {
             this.produtos.splice(indiceExcluir, 1);
         }
+        console.log(this.produtos)
     };
 });
