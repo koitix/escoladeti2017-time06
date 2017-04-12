@@ -37,9 +37,23 @@ app.service('produtoService', function () {
         return this.produtos;
     };
 
+    this.getProduto = function (codigoProduto) {
+        for (var i in this.produtos) {
+            if (codigoProduto == this.produtos[i].codigo) {
+                return this.produtos[i];
+            }
+        }
+    };
+
     this.salvar = function (produto) {
-        produto.codigo = this.contador();
-        this.produtos.push(produto);
+        if (produto.codigo) {
+            var atualizarProduto = this.getProduto(produto.codigo);
+            atualizarProduto.nome = produto.nome;
+            atualizarProduto.preco = produto.preco;
+        } else {
+            produto.codigo = this.contador();
+            this.produtos.push(produto);
+        }
     };
 
     this.deletar = function (codigoProduto) {
@@ -52,6 +66,5 @@ app.service('produtoService', function () {
         if (indiceExcluir) {
             this.produtos.splice(indiceExcluir, 1);
         }
-        console.log(this.produtos)
     };
 });
