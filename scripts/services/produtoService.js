@@ -2,23 +2,23 @@ app.service('produtoService', function () {
     this.produtos = [
         {
             codigo: 1,
-            nome: 'prod1',
+            nome: 'Camiseta',
             preco: 22.3
         },
         {
             codigo: 5,
-            nome: 'prod2',
-            preco: 22.3
+            nome: 'Calça',
+            preco: 350.00
         },
         {
             codigo: 3,
-            nome: 'prod3',
-            preco: 22.3
+            nome: 'Boné',
+            preco: 11
         },
         {
             codigo: 4,
-            nome: 'prod4',
-            preco: 22.3
+            nome: 'Vestido',
+            preco: 250
         }
 
     ];
