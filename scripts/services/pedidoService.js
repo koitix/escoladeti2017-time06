@@ -1,70 +1,57 @@
-app.service('produtoService', function () {
-    this.produtos = [
+app.service('pedidoService', function () {
+    this.pedidos = [
         {
             codigo: 1,
-            nome: 'Camiseta',
-            preco: 22.3
+            emissao: '2017-04-21',
+            total: 100
         },
         {
-            codigo: 5,
-            nome: 'Calça',
-            preco: 350.00
+            codigo: 2,
+            emissao: '2017-04-21',
+            total: 100
         },
         {
-            codigo: 3,
-            nome: 'Boné',
-            preco: 11
+            codigo: 13,
+            emissao: '2017-04-21',
+            total: 100
         },
         {
             codigo: 4,
-            nome: 'Vestido',
-            preco: 250
-        }
+            emissao: '2017-04-21',
+            total: 100
+        },
 
     ];
 
     this.contador = function () {
         var maior = 0;
-        for (var i in this.produtos) {
-            if (maior < this.produtos[i].codigo) {
-                maior = this.produtos[i].codigo;
+        for (var i in this.pedidos) {
+            if (maior < this.pedidos[i].codigo) {
+                maior = this.pedidos[i].codigo;
             }
         }
         return maior + 1;
     };
 
-    this.getProdutos = function () {
-        return this.produtos;
+    this.getPedidos = function () {
+        return this.pedidos;
     };
 
-    this.getProduto = function (codigoProduto) {
-        for (var i in this.produtos) {
-            if (codigoProduto == this.produtos[i].codigo) {
-                return this.produtos[i];
-            }
-        }
-    };
-
-    this.salvar = function (produto) {
-        if (produto.codigo) {
-            var atualizarProduto = this.getProduto(produto.codigo);
-            atualizarProduto.nome = produto.nome;
-            atualizarProduto.preco = produto.preco;
-        } else {
-            produto.codigo = this.contador();
-            this.produtos.push(produto);
-        }
-    };
-
-    this.deletar = function (codigoProduto) {
+    this.deletar = function (codigoPedido) {
         var indiceExcluir = null;
-        for (var i in this.produtos) {
-            if (codigoProduto == this.produtos[i].codigo) {
+        for (var i in this.pedidos) {
+            if (codigoPedido == this.pedidos[i].codigo) {
                 indiceExcluir = i;
             }
         }
         if (indiceExcluir) {
-            this.produtos.splice(indiceExcluir, 1);
+            this.pedidos.splice(indiceExcluir, 1);
         }
     };
+
+    this.salvar = function (pedido) {
+        pedido.codigo = this.contador();
+        this.pedidos.push(pedido);
+    };
+
 });

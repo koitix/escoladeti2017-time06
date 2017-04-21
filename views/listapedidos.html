@@ -36,23 +36,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>22/3</td>
-                <td>23232</td>
-                <td>excluir</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>33/2</td>
-                <td>12312</td>
-                <td>excluir</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>221/1</td>
-                <td>213123</td>
-                <td>exlcuir</td>
+            <tr ng-repeat="pedido in pedidos | filter : buscaPedido">
+                <td>{{pedido.codigo}}</td>
+                <td>{{pedido.emissao}}</td>
+                <td>{{pedido.total}}</td>
+                <td>
+                    <span style="cursor: pointer;" ng-click="deletar(pedido.codigo)" class="glyphicon glyphicon-remove"></span>
+                </td>
             </tr>
             </tbody>
         </table>

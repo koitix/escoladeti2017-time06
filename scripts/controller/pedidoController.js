@@ -1,19 +1,33 @@
-app.controller('produtoController', function ($scope, $location, produtoService) {
-    $scope.produtos = produtoService.getProdutos();
-    $scope.produto = {};
+app.controller('pedidoController', function ($scope, $location, pedidoService) {
+    $scope.pedidos = pedidoService.getPedidos();
+    $scope.pedido = {
+        produtos: [
+            {
+                nome: 'Omo',
+                quantidade: 2,
+                preco: 33,
+                desconto: 50,
+                total: 100
+            },
+            {
+                nome: 'Luva',
+                quantidade: 1,
+                preco: 33,
+                desconto: 50,
+                total: 15
+            },
+        ]
+    };
+    $scope.getDatetime = new Date();
+
+    $scope.deletar = function (pedido) {
+        pedidoService.deletar(pedido);
+    };
 
     $scope.salvar = function () {
-        produtoService.salvar(angular.copy($scope.produto));
-        $scope.produto = {};
-        $location.path("/produtos");
-    };
-
-    $scope.deletar = function (produto) {
-        produtoService.deletar(produto);
-    };
-
-    $scope.editar = function (codigoProduto) {
-        $location.path('/editarproduto/' + codigoProduto)
+        pedidoService.salvar(angular.copy($scope.pedido));
+        $scope.pedido = {};
+        $location.path("/pedidos");
     };
 
 });

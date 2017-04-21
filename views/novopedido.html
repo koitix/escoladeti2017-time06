@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="numero" class="col-sm-1 control-label">Numero</label>
+                <div class="col-sm-1">
+                    <input ng-model="pedido.numero" type="text" name="numero" id="numero" class="form-control">
+                </div>
+                <label for="emissao" class="col-sm-1 control-label">Emissão</label>
+                <div class="col-sm-4">
+                    <input ng-model="pedido.emissao" type="datetime-local" name="emissao" id="emissao" class="form-control">
+                </div>
+                <label for="total" class="col-sm-1 control-label">Total</label>
+                <div class="col-sm-4">
+                    <input ng-model="pedido.total" type="text" name="total" id="total" class="form-control">
+                </div>
+            </div>
+            <hr>
+            <hr>
+            <div class="form-group">
+                <label for="buscarProduto" class="col-sm-1 control-label">
+                    <span class="glyphicon glyphicon-search"></span>
+                </label>
+                <div class="col-sm-2">
+                    <input type="text" ng-model="buscarProduto" name="buscarProduto" id="buscarProduto" class="form-control" placeholder="Produto">
+                </div>
+
+                <label for="quantidade" class="col-sm-1 control-label">Quantidade</label>
+                <div class="col-sm-1">
+                    <input type="text" name="quantidade" id="quantidade" class="form-control">
+                </div>
+
+                <label for="preco" class="col-sm-1 control-label">Preço</label>
+                <div class="col-sm-1">
+                    <input type="text" name="preco" id="preco" class="form-control">
+                </div>
+
+                <label for="desconto" class="col-sm-1 control-label">Desconto</label>
+                <div class="col-sm-1">
+                    <input type="text" name="desconto" id="desconto" class="form-control">
+                </div>
+
+                <label for="total" class="col-sm-1 control-label">Total</label>
+                <div class="col-sm-1">
+                    <input type="text" name="total" id="total" class="form-control">
+                </div>
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-primary">Incluir</button>
+                </div>
+            </div>
+            <hr>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Desconto</th>
+                    <th>Total</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="produto in pedido.produtos">
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.preco}}</td>
+                    <td>{{produto.desconto}}</td>
+                    <td>{{produto.total}}</td>
+                    <td>Excluir</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <div class="col-sm-1">
+                    <button ng-click="salvar()" type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-warning">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
