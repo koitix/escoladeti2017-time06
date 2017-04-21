@@ -34,5 +34,17 @@ app.controller('pedidoController', function ($scope, $location, pedidoService, p
     $scope.incluirProduto = function () {
         $scope.pedido.produtos.push(angular.copy($scope.produtoSelecionado));
         $scope.produtoSelecionado = {};
-    }
+    };
+
+    $scope.excluirProduto = function (produto) {
+        var indiceExcluir = null;
+        for (var i in $scope.pedido.produtos) {
+            if (produto == $scope.pedido.produtos[i].nome) {
+                indiceExcluir = i;
+            }
+        }
+        if (indiceExcluir) {
+            $scope.pedido.produtos.splice(indiceExcluir, 1);
+        }
+    };
 });

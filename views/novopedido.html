@@ -68,7 +68,9 @@
                     <td>{{produto.preco}}</td>
                     <td>{{produto.desconto}}</td>
                     <td>{{produto.total}}</td>
-                    <td>Excluir</td>
+                    <td>
+                        <span style="cursor:pointer;" ng-click="excluirProduto(produto.nome)" class="glyphicon glyphicon-remove"></span>
+                    </td>
                 </tr>
                 </tbody>
             </table>
