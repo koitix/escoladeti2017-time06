@@ -22,6 +22,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/listapedidos.html'
             // controller: 'MainCtrl',
             // controllerAs: 'main'
+        }).when('/novopedido', {
+            templateUrl: 'views/novopedido.html',
+            controller: 'pedidoController'
+            // controllerAs: 'main'
         })
         .otherwise({
             redirectTo: '/'
