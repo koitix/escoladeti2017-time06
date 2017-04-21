@@ -21,31 +21,32 @@
                 <label for="buscarProduto" class="col-sm-1 control-label">
                     <span class="glyphicon glyphicon-search"></span>
                 </label>
+
                 <div class="col-sm-2">
-                    <input type="text" ng-model="buscarProduto" name="buscarProduto" id="buscarProduto" class="form-control" placeholder="Produto">
+                    <select ng-model="produtoSelecionado.nome" ng-options="produto.nome as produto.nome for produto in produtos" name="name" id="buscarProduto" class="form-control"></select>
                 </div>
 
                 <label for="quantidade" class="col-sm-1 control-label">Quantidade</label>
                 <div class="col-sm-1">
-                    <input type="text" name="quantidade" id="quantidade" class="form-control">
+                    <input ng-model="produtoSelecionado.quantidade" type="text" name="quantidade" id="quantidade" class="form-control">
                 </div>
 
                 <label for="preco" class="col-sm-1 control-label">Preço</label>
                 <div class="col-sm-1">
-                    <input type="text" name="preco" id="preco" class="form-control">
+                    <input ng-model="produtoSelecionado.preco" type="text" name="preco" id="preco" class="form-control">
                 </div>
 
                 <label for="desconto" class="col-sm-1 control-label">Desconto</label>
                 <div class="col-sm-1">
-                    <input type="text" name="desconto" id="desconto" class="form-control">
+                    <input ng-model="produtoSelecionado.desconto" type="text" name="desconto" id="desconto" class="form-control">
                 </div>
 
-                <label for="total" class="col-sm-1 control-label">Total</label>
+                <label for="totalProduto" class="col-sm-1 control-label">Total</label>
                 <div class="col-sm-1">
-                    <input type="text" name="total" id="total" class="form-control">
+                    <input ng-model="produtoSelecionado.total" type="text" name="total" id="totalProduto" class="form-control">
                 </div>
                 <div class="col-sm-1">
-                    <button type="submit" class="btn btn-primary">Incluir</button>
+                    <button type="submit" class="btn btn-primary" ng-click="incluirProduto()">Incluir</button>
                 </div>
             </div>
             <hr>

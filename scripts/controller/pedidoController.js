@@ -1,5 +1,6 @@
-app.controller('pedidoController', function ($scope, $location, pedidoService) {
+app.controller('pedidoController', function ($scope, $location, pedidoService, produtoService) {
     $scope.pedidos = pedidoService.getPedidos();
+    $scope.produtos = produtoService.getProdutos();
     $scope.pedido = {
         produtos: [
             {
@@ -30,4 +31,8 @@ app.controller('pedidoController', function ($scope, $location, pedidoService) {
         $location.path("/pedidos");
     };
 
+    $scope.incluirProduto = function () {
+        $scope.pedido.produtos.push(angular.copy($scope.produtoSelecionado));
+        $scope.produtoSelecionado = {};
+    }
 });
